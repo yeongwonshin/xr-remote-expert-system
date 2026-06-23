@@ -1,0 +1,11 @@
+risk_id,category,risk,impact,probability,mitigation,owner
+R-001,Product,현장 작업자가 앱 조작을 번거롭게 느낌,High,Medium,"음성/핸즈프리 UX, 장갑 모드, 교육",Product
+R-002,Technology,저대역폭 현장에서 영상 품질 저하,High,High,"Adaptive bitrate, 스냅샷 모드, edge cache",Engineering
+R-003,AI,AI가 출처 없는 절차를 제안,High,Medium,"Citation required, guardrail, expert approval",AI Lead
+R-004,Security,외부 벤더 접근으로 데이터 유출,High,Medium,"JIT access, RBAC, watermark, audit",Security
+R-005,Data,매뉴얼 최신 버전 관리 실패,Medium,Medium,"Approval workflow, version control, stale doc alert",Knowledge Manager
+R-006,Commercial,기존 원격지원 솔루션 대비 차별화 부족,High,Medium,RAG/리포트/연동/산업템플릿 집중,Strategy
+R-007,Operations,온프레미스 고객 지원 부담 증가,Medium,High,"표준 배포 패키지, runbook, 파트너 운영",Ops
+R-008,Compliance,의료/항공 등 규정 요구 미충족,High,Medium,산업별 컴플라이언스 갭 분석,Compliance
+R-009,UX,스마트글래스 착용성/배터리 문제,Medium,Medium,"디바이스 선택 가이드, 모바일 fallback",Product
+R-010,Integration,CMMS/EAM 커스터마이징 과다,Medium,High,"Integration gateway, 표준 connector 우선",Engineering

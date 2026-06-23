@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "XR Remote Expert Event Envelope",
+  "type": "object",
+  "required": [
+    "event_id",
+    "tenant_id",
+    "event_type",
+    "occurred_at",
+    "payload"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "tenant_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "session_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "work_order_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "actor_user_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "event_type": {
+      "type": "string",
+      "examples": [
+        "session.started",
+        "expert.joined",
+        "annotation.created",
+        "manual.search.performed",
+        "ai.answer.generated",
+        "evidence.captured",
+        "report.approved"
+      ]
+    },
+    "occurred_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "payload": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+flowchart LR
+  A[Field Worker App] -->|WebRTC Video/Audio| B[SFU Media Router]
+  C[Expert Console] -->|WebRTC Video/Audio| B
+  A -->|Annotation Events| D[Annotation Service]
+  C -->|Annotation Events| D
+  D --> E[Session Service]
+  A -->|Voice, OCR, Snapshots| F[AI Orchestrator]
+  F --> G[Retrieval Service]
+  G --> H[Vector DB]
+  G --> I[Document Store]
+  F --> J[Report Service]
+  E --> J
+  J --> K[Work Order Service]
+  K --> L[CMMS/EAM/ERP]
+  E --> M[Audit Log]
+  F --> M
+  J --> M

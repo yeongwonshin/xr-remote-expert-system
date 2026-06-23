@@ -1,0 +1,166 @@
+openapi: 3.0.3
+info:
+  title: XR Remote Expert AI Assist API
+  version: 1.0.0
+  description: Enterprise API contract for XR remote expert sessions, AI/RAG, reports, and integrations.
+servers:
+  - url: https://api.example.com/v1
+security:
+  - bearerAuth: []
+paths:
+  /sessions:
+    post:
+      summary: Create XR remote assistance session
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [work_order_id, asset_id]
+              properties:
+                work_order_id:
+                  type: string
+                  format: uuid
+                asset_id:
+                  type: string
+                  format: uuid
+                priority:
+                  type: string
+                  enum: [low, medium, high, critical]
+                invite_expert_ids:
+                  type: array
+                  items:
+                    type: string
+                    format: uuid
+      responses:
+        '201':
+          description: Session created
+  /sessions/{session_id}/join-token:
+    post:
+      summary: Issue short-lived join token
+      parameters:
+        - name: session_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Join token issued
+  /sessions/{session_id}/annotations:
+    post:
+      summary: Create AR annotation
+      parameters:
+        - name: session_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnnotationCreate'
+      responses:
+        '201':
+          description: Annotation created
+  /ai/rag/ask:
+    post:
+      summary: Ask AI/RAG with session and asset context
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [question]
+              properties:
+                session_id:
+                  type: string
+                  format: uuid
+                asset_id:
+                  type: string
+                  format: uuid
+                question:
+                  type: string
+                language:
+                  type: string
+                  example: ko-KR
+      responses:
+        '200':
+          description: AI answer with citations
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIAnswer'
+  /reports/generate:
+    post:
+      summary: Generate AI session report draft
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [session_id]
+              properties:
+                session_id:
+                  type: string
+                  format: uuid
+                report_type:
+                  type: string
+                  enum: [customer, internal, compliance]
+      responses:
+        '202':
+          description: Report generation accepted
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    AnnotationCreate:
+      type: object
+      required: [annotation_type, coordinate_type, payload]
+      properties:
+        annotation_type:
+          type: string
+          enum: [arrow, circle, freehand, text, pin, measurement]
+        coordinate_type:
+          type: string
+          enum: [screen_space, world_space, hybrid]
+        payload:
+          type: object
+    AIAnswer:
+      type: object
+      properties:
+        answer_id:
+          type: string
+          format: uuid
+        answer:
+          type: string
+        citations:
+          type: array
+          items:
+            type: object
+            properties:
+              document_id:
+                type: string
+              title:
+                type: string
+              version:
+                type: string
+              page:
+                type: integer
+              snippet:
+                type: string
+        confidence:
+          type: number
+        safety_class:
+          type: string
+          enum: [normal, caution, high_risk, blocked]

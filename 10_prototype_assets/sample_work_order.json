@@ -1,0 +1,21 @@
+{
+  "work_order_id": "WO-77821",
+  "priority": "high",
+  "site": "A공장 2라인",
+  "asset": {
+    "asset_id": "ASSET-PUMP-X200-09",
+    "name": "냉각수 펌프 09",
+    "manufacturer": "Example Industrial",
+    "model": "Pump-X200",
+    "serial_number": "PX200-24-9981",
+    "location_label": "2라인 냉각수 유닛"
+  },
+  "reported_symptom": "E37 유량 경고 반복",
+  "error_code": "E37",
+  "requested_by": "김현장",
+  "created_at": "2026-06-24T09:42:00+09:00",
+  "suggested_knowledge": [
+    "Pump-X200 Service Manual v3.2 p.118",
+    "Cooling Loop SOP v1.8 p.12"
+  ]
+}
