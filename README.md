@@ -1,19 +1,22 @@
-# XR 원격 전문가 지원 시스템 — 전문 시스템 디렉토리
+# XR Remote Expert Assistance System — Professional System Directory
 
-본 디렉토리는 단순 MVP가 아니라 **엔터프라이즈 상용 시스템**으로 확장하기 위한 제품·기술·운영·보안·상용화 설계 패키지입니다.
+This directory is a product, technology, operations, security, and commercialization design package intended to scale beyond a simple MVP into an **enterprise-grade commercial system**.
 
-## 제품 한 줄 정의
-현장 작업자의 1인칭 영상·음성·공간 정보를 원격 전문가와 공유하고, 전문가 주석을 AR로 정합하며, AI가 매뉴얼 검색·절차 추천·위험 감지·작업 리포트를 자동화하는 산업용 XR 협업 플랫폼.
+## One-line Product Definition
 
-## 핵심 차별화
-- 단순 화상/주석이 아니라 **작업 절차 중심의 Assistance Operating System**
-- RAG 기반 매뉴얼·도면·SOP·장비 이력 검색
-- 세션 중 자동 기록: 음성, 영상 스냅샷, 주석, 부품, 측정값, 의사결정
-- 정비 리포트, 원인 분석, 후속 작업, 부품 요청 자동 생성
-- EAM/CMMS, Field Service, HIS/EMR, ERP, PLM, BIM, SCADA/MES 연계
-- 보안 구역용 온프레미스/프라이빗 클라우드/엣지 배포 옵션
+An industrial XR collaboration platform that shares a field worker’s first-person video, audio, and spatial context with remote experts, aligns expert annotations in AR, and uses AI to automate manual retrieval, procedure recommendations, hazard detection, and work-report generation.
 
-## 디렉토리 구조
+## Key Differentiators
+
+- An **Assistance Operating System** centered on work procedures, not just video calls and annotations
+- RAG-based retrieval of manuals, drawings, SOPs, and equipment history
+- Automatic session capture of audio, video snapshots, annotations, parts, measurements, and decisions
+- Automatic generation of maintenance reports, root-cause analysis, follow-up tasks, and parts requests
+- Integration with EAM/CMMS, field service platforms, HIS/EMR, ERP, PLM, BIM, and SCADA/MES
+- On-premises, private-cloud, and edge deployment options for secure environments
+
+## Directory Structure
+
 ```text
 xr_remote_expert_pro_system/
 ├─ README.md
@@ -79,14 +82,16 @@ xr_remote_expert_pro_system/
    └─ research_and_market_notes.md
 ```
 
-## 권장 사용법
-1. `00_executive`로 투자자/경영진용 핵심 설명을 만든다.
-2. `01_product`와 `03_ar_remote_assist`로 고객 데모 시나리오를 정리한다.
-3. `02_system_architecture`, `04_ai_rag`, `05_backend_data`로 개발 착수 범위를 확정한다.
-4. `06_security_compliance`와 `07_operations`로 대기업 PoC 요구사항에 대응한다.
-5. `08_commercialization`, `09_roadmap`으로 가격·파일럿·확장 전략을 수립한다.
+## Recommended Usage
 
-## 시스템 성숙도 기준
-- **MVP:** 영상 공유, 주석, 음성, 매뉴얼 검색, 리포트 생성
-- **Professional:** SSO, 감사로그, 역할권한, 지식 파이프라인, 워크오더 연동, 장비 이력, SLA 운영, 모델 평가
-- **Enterprise:** 온프레미스, 엣지, 프라이빗 모델, 산업별 규정, 다국어, 대규모 디바이스 관리, 고가용성, 데이터 레지던시
+1. Use `00_executive` to prepare investor- and executive-facing summaries.
+2. Use `01_product` and `03_ar_remote_assist` to define customer demo scenarios.
+3. Use `02_system_architecture`, `04_ai_rag`, and `05_backend_data` to finalize the development scope.
+4. Use `06_security_compliance` and `07_operations` to address enterprise PoC requirements.
+5. Use `08_commercialization` and `09_roadmap` to define pricing, pilot, and scale-up strategies.
+
+## System Maturity Levels
+
+- **MVP:** Video sharing, annotations, voice communication, manual search, and report generation
+- **Professional:** SSO, audit logs, role-based access control, knowledge pipelines, work-order integration, equipment history, SLA operations, and model evaluation
+- **Enterprise:** On-premises deployment, edge processing, private models, industry-specific compliance, multilingual support, large-scale device management, high availability, and data residency
